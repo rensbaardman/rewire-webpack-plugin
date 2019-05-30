@@ -38,4 +38,4 @@ Both have been published under the [Unlicense.](http://unlicense.org/)
 License
 -------
 
-[Unlicense.](http://unlicense.org/)
+MIT

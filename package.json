@@ -20,7 +20,7 @@
   "main": "lib/RewireWebpackPlugin.js",
   "homepage": "https://github.com/rensbaardman/rewire-webpack-plugin",
   "repository": "git://github.com/rensbaardman/rewire-webpack-plugin.git",
-  "license": "Unlicense",
+  "license": "MIT",
   "dependencies": {
     "enhanced-resolve": "^3.1.0",
     "webpack": "^2.2.1"
