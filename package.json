@@ -42,6 +42,7 @@
     "test": "npm-run-all --parallel test:*",
     "test:unit": "mocha test/unit/RewireWebpackPlugin.test.js",
     "test:functional": "mocha test/functional/RewireWebpackPlugin.test.js",
-    "test:shared": "karma start test/rewire-shared-test-cases/rewire-shared-test-cases.karma.config.js"
+    "test:shared": "karma start test/rewire-shared-test-cases/rewire-shared-test-cases.karma.config.js",
+    "test:installation": "mocha test/installation/RewireWebpackPlugin.test.js"
   }
 }
