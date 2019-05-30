@@ -21,9 +21,12 @@
   },
   "dependencies": {
     "enhanced-resolve": "^4.1.0",
-    "rewire": "^4.0.1"
+    "rewire": "^4.0.1",
+    "webpack": "^4.32.2"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "expect.js": "^0.3.1",
     "karma": "^4.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.1.0",
@@ -34,7 +37,8 @@
     "mocha-loader": "^2.0.1"
   },
   "scripts": {
-    "test": "npm run test:shared",
+    "test": "npm run test:unit && npm run test:shared",
+    "test:unit": "mocha test/unit/RewireWebpackPlugin.test.js",
     "test:shared": "karma start test/rewire-shared-test-cases/rewire-shared-test-cases.karma.config.js"
   }
 }
