@@ -1,17 +1,12 @@
 {
   "name": "rewire-webpack-plugin",
   "version": "0.1.0",
-  "description": "Dependency injection for webpack bundles",
+  "description": "Webpack plugin to support rewire",
   "keywords": [
-    "dependency",
-    "injection",
-    "mock",
-    "unit",
-    "test",
-    "leak",
     "webpack",
-    "browser",
-    "inspect"
+    "plugin",
+    "rewire",
+    "unit-testing"
   ],
   "author": {
     "name": "Rens Baardman",
