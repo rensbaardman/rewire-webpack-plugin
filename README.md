@@ -13,7 +13,9 @@ Installation
 
 _**note:** not published to `npm` yet!_
 
-`npm install rewire-webpack-plugin`
+Following will install from Github repo:
+
+`npm install rensbaardman/rewire-webpack-plugin`
 
 Configuration
 ------------
