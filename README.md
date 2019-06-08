@@ -17,6 +17,8 @@ Following will install from Github repo:
 
 `npm install rensbaardman/rewire-webpack-plugin`
 
+(--save-dev?)
+
 Configuration
 ------------
 
@@ -25,11 +27,14 @@ Add the RewireWebpackPlugin to the webpack config:
 ```javascript
 // webpack.config.js
 
-var RewireWebpackPlugin = require("rewire-webpack-plugin");
-var webpackConfig = {
-    plugins: [
-        new RewireWebpackPlugin()
-    ]
+const RewireWebpackPlugin = require("rewire-webpack-plugin");
+module.exports = {
+
+	// ...
+
+	plugins: [
+		new RewireWebpackPlugin()
+	]
 };
 ```
 
@@ -73,8 +78,18 @@ Limitations
 
 See also [rewire limitations](https://github.com/jhnns/rewire#limitations)
 
-Contribution
-------------
+Development
+-----------
+
+*to do*
+
+- clone
+- install
+- test
+- release
+
+Acknowledgement
+---------------
 
 This is a fork of [jhnns/rewire-webpack](https://github.com/jhnns/rewire-webpack), which was based on contributions from [sokra](https://github.com/sokra).
 This fork contains updates from [dribba/rewire-webpack](https://github.com/dribba/rewire-webpack).
@@ -83,4 +98,4 @@ Both have been published under the [Unlicense.](http://unlicense.org/)
 License
 -------
 
-MIT
+rewire-webpack-plugin is licensed under the [MIT License.](LICENSE)
