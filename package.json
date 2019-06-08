@@ -17,12 +17,11 @@
   "repository": "git://github.com/rensbaardman/rewire-webpack-plugin.git",
   "license": "MIT",
   "peerDependencies": {
-    "webpack": "^4.0.0"
+    "webpack": ">=4.16.0",
+    "rewire": ">=2.5.1"
   },
   "dependencies": {
-    "enhanced-resolve": "^4.1.0",
-    "rewire": "^4.0.1",
-    "webpack": "^4.32.2"
+    "enhanced-resolve": "^4.1.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -36,7 +35,8 @@
     "memory-fs": "^0.4.1",
     "mocha": "^6.1.4",
     "mocha-loader": "^2.0.1",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "rewire": "^4.0.1"
   },
   "scripts": {
     "test": "npm-run-all --parallel test:*",
