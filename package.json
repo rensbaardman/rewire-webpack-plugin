@@ -13,6 +13,7 @@
     "email": "dev@rensbaardman.nl"
   },
   "main": "lib/RewireWebpackPlugin.js",
+  "files": ["lib/*"],
   "homepage": "https://github.com/rensbaardman/rewire-webpack-plugin",
   "repository": "git://github.com/rensbaardman/rewire-webpack-plugin.git",
   "license": "MIT",
