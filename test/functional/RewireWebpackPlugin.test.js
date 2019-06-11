@@ -34,37 +34,27 @@ function generate_webpack_compiler(fixture_name) {
 
 function assert_no_webpack_errors(err, stats) {
 	assert.equal(err, null);
-	assert.equal(stats.hasErrors(), false);
 	assert.equal(stats.hasWarnings(), false);
+	assert.equal(stats.hasErrors(), false);
 }
 
 
 describe('RewireWebpackPlugin.js', function() {
 
 	it('can be used as a webpack plugin', function(done) {
-
-		const compiler = generate_webpack_compiler('empty')
-
+		const compiler = generate_webpack_compiler('empty');
 		compiler.run((err, stats) => {
 			assert_no_webpack_errors(err, stats)
 			done();
 		});
-
 	})
 
 	it("when used as a webpack plugin, it doesn't error on requiring 'rewire'", function(done) {
-
-		const compiler = generate_webpack_compiler('require-rewire')
-
+		const compiler = generate_webpack_compiler('require-rewire');
 		compiler.run((err, stats) => {
 			assert_no_webpack_errors(err, stats)
 			done();
 		});
-
-	})
-
-	it("when used as a Webpack plugin, webpack doesn't throw DeprecationWarnings", function() {
-		assert.fail('complete this test')
 	})
 
 })
