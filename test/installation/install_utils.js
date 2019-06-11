@@ -82,7 +82,7 @@ async function copy_shared_test_cases(test_name) {
 	await exec(`cp -r test/rewire-shared-test-cases ${folder}/${test_name}/test`)
 
 	// replace "require('../../lib/RewireWebpackPlugin.js')"
-	// with "require('rewire-webpack-plugin')"
+	// with    "require('rewire-webpack-plugin')"
 	const regex = String.raw`s/\.\.\/\.\.\/lib\/RewireWebpackPlugin\.js/rewire-webpack-plugin/`;
 	const webpack_config = "test/rewire-shared-test-cases/rewire-shared-test-cases.webpack.config.js"
 	await exec(`sed -i '.backup' "${regex}" "${webpack_config}"`, {cwd: `${folder}/${test_name}`})

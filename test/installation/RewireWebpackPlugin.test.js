@@ -13,8 +13,10 @@ const { create_installation,
 
 describe('RewireWebpackPlugin', function () {
 
-	// installing webpack can take up to ~20-40 s.
-	this.timeout(60000);
+	// Installing webpack can take up to ~20-40 s.
+	// and running a single test can take more than 1 min!
+	// So 5min is on the safe side.
+	this.timeout(300000);
 
 	before(create_installation)
 	after(delete_installation)
@@ -39,19 +41,27 @@ describe('RewireWebpackPlugin', function () {
 	})
 
 	it('when installed with webpack and rewire, the shared test cases pass', async () => {
-		await install('test-shared-cases', ['webpack', 'rewire', 'karma', 'karma-webpack@4.0.0-rc.6', 'karma-firefox-launcher', 'karma-chrome-launcher', 'mocha', 'mocha-loader', 'karma-mocha', 'karma-mocha-reporter'])
+		// In this case, we have to install the fork
+		// rensbaardman/rewire
+		// since rewire doesn't pass its own test suite!
+		// This is fixed in the fork (which also contains
+		// a fix to make the test suite work in Firefox).
+		await install(
+			'test-shared-cases',
+			[
+				'webpack',
+				'rensbaardman/rewire',
+				'karma',
+				'karma-webpack',
+				'karma-firefox-launcher',
+				'karma-chrome-launcher',
+				'mocha',
+				'mocha-loader',
+				'karma-mocha',
+				'karma-mocha-reporter'
+			 ]
+		)
 		await run_shared_test_cases('test-shared-cases')
 	})
 
-	it('when installed with minimum requirements webpack and rewire, the shared test cases pass', async () => {
-		await install('test-shared-cases-minimum', ['webpack@4.16', 'rewire@2.5.1', 'karma', 'karma-webpack@4.0.0-rc.6', 'karma-firefox-launcher', 'karma-chrome-launcher', 'mocha', 'mocha-loader', 'karma-mocha', 'karma-mocha-reporter'])
-		await run_shared_test_cases('test-shared-cases-minimum')
-	})
-
 })
-
-// refactoring ideas:
-// -- move error filtering to test file (more explicit in expected errors)
-// -- maybe just checking for declared peerdependencies in package.json is more than enough for getting these peerdependency errors
-// -- programmatically extract webpack@4.16 and rewire@2.5.1 -- maybe I will change requirements
-// -- better error handling in run_shared_test_cases()
