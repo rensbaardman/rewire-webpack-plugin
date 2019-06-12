@@ -43,9 +43,16 @@ Limitations
     const rewire = require('rewire');
     ```
 
-    Anything else (e.g. `const my_favorite_rewire = require('rewire')`) will not work.
+    Any other names will not work:
 
-    It is possible to declare with either `var`, `let`, or `const`.
+    ```javascript
+    // this won't work
+    const my_favorite_rewire = require('rewire')
+    ```
+
+    If you do use a different name, the emitted bundle will throw the error `__webpack_require__.m[module] is undefined`.
+
+    It *is* possible to declare with either `var`, `let`, or `const`.
 
 - The argument to `rewire()` has to be a string, not a variable:
 
