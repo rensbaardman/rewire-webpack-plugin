@@ -54,7 +54,7 @@ function assert_typeError(err) {
 	const last_call = err.stack.split('\n')[1].trim()
 	assert.equal(last_call, "__webpack_require__.m[moduleId].call(")
 	const location = err.stack.split('\n')[5].trim()
-	assert.equal(location, "at rewire (webpack:///./lib/rewire.web.js?:16:34)")
+	assert.equal(location, "at rewire (webpack:///./lib/rewire.web.js?:19:34)")
 }
 
 
