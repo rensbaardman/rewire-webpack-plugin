@@ -1,6 +1,6 @@
 {
   "name": "rewire-webpack-plugin",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Webpack plugin to enable rewire in webpack bundles (fork of rewire-webpack)",
   "keywords": [
     "webpack",
