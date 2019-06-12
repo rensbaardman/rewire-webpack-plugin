@@ -44,7 +44,7 @@
     "webpack": ">=4.16.0"
   },
   "scripts": {
-    "test": "npm-run-all --parallel test:*",
+    "test": "npm-run-all test:*",
     "test:unit": "mocha test/unit/RewireWebpackPlugin.test.js",
     "test:functional": "mocha test/functional/RewireWebpackPlugin.test.js",
     "test:shared": "karma start test/rewire-shared-test-cases/rewire-shared-test-cases.karma.config.js",
