@@ -39,36 +39,36 @@ Limitations
 
 - The variable in which you load rewire has to be named `rewire`:
 
-	```javascript
-	const rewire = require('rewire');
-	```
+    ```javascript
+    const rewire = require('rewire');
+    ```
 
-	Anything else (e.g. `const my_favorite_rewire = require('rewire')`) will not work.
+    Anything else (e.g. `const my_favorite_rewire = require('rewire')`) will not work.
 
-	It is possible to declare with either `var`, `let`, or `const`.
+    It is possible to declare with either `var`, `let`, or `const`.
 
 - The argument to `rewire()` has to be a string, not a variable:
 
-	```javascript
-	const rewire = require('rewire');
-	const my_lib = rewire('./src/my_lib.js');
-	```
+    ```javascript
+    const rewire = require('rewire');
+    const my_lib = rewire('./src/my_lib.js');
+    ```
 
-	Using variables or string templates won't work:
+    Using variables or string templates won't work:
 
-	```javascript
-	const rewire = require('rewire');
+    ```javascript
+    const rewire = require('rewire');
 
-	// this won't work
-	const path_to_lib = './src/my_lib.js';
-	const my_lib = rewire(path_to_lib);
+    // this won't work
+    const path_to_lib = './src/my_lib.js';
+    const my_lib = rewire(path_to_lib);
 
-	// this won't work either
-	const lib_name = 'my_lib';
-	const my_lib2 = rewire(`./src/${lib_name}.js`);
-	```
+    // this won't work either
+    const lib_name = 'my_lib';
+    const my_lib2 = rewire(`./src/${lib_name}.js`);
+    ```
 
-	In the last two cases, the emitted bundle will throw the error `__webpack_require__.m[module] is undefined`.
+    In the last two cases, the emitted bundle will throw the error `__webpack_require__.m[module] is undefined`.
 
 See also [rewire limitations](https://github.com/jhnns/rewire#limitations), and see the [wiki on troubleshooting](https://github.com/rensbaardman/rewire-webpack-plugin/wiki) for more potential errors and their solutions.
 
