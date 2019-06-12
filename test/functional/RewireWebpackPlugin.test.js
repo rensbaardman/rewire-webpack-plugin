@@ -48,6 +48,15 @@ function eval_asset(stats) {
 	return vm.runInNewContext(emitted_src, context)
 }
 
+function assert_typeError(err) {
+	assert.equal(err.name, 'TypeError')
+	assert.equal(err.message, "Cannot read property 'call' of undefined")
+	const last_call = err.stack.split('\n')[1].trim()
+	assert.equal(last_call, "__webpack_require__.m[moduleId].call(")
+	const location = err.stack.split('\n')[5].trim()
+	assert.equal(location, "at rewire (webpack:///./lib/rewire.web.js?:16:34)")
+}
+
 
 describe('RewireWebpackPlugin.js', function() {
 
@@ -109,12 +118,7 @@ describe('RewireWebpackPlugin.js', function() {
 				assert.fail("Expected eval_asset(stats) to throw a TypeError, but it didn't")
 			}
 			catch (err) {
-				assert.equal(err.name, 'TypeError')
-				assert.equal(err.message, "Cannot read property 'call' of undefined")
-				const last_call = err.stack.split('\n')[1].trim()
-				assert.equal(last_call, "__webpack_require__.m[moduleId].call(")
-				const location = err.stack.split('\n')[5].trim()
-				assert.equal(location, "at rewire (webpack:///./lib/rewire.web.js?:16:34)")
+				assert_typeError(err)
 			}
 			done()
 			});
@@ -130,12 +134,7 @@ describe('RewireWebpackPlugin.js', function() {
 				assert.fail("Expected eval_asset(stats) to throw a TypeError, but it didn't")
 			}
 			catch (err) {
-				assert.equal(err.name, 'TypeError')
-				assert.equal(err.message, "Cannot read property 'call' of undefined")
-				const last_call = err.stack.split('\n')[1].trim()
-				assert.equal(last_call, "__webpack_require__.m[moduleId].call(")
-				const location = err.stack.split('\n')[5].trim()
-				assert.equal(location, "at rewire (webpack:///./lib/rewire.web.js?:16:34)")
+				assert_typeError(err)
 			}
 			done()
 			});
@@ -151,12 +150,23 @@ describe('RewireWebpackPlugin.js', function() {
 				assert.fail("Expected eval_asset(stats) to throw a TypeError, but it didn't")
 			}
 			catch (err) {
-				assert.equal(err.name, 'TypeError')
-				assert.equal(err.message, "Cannot read property 'call' of undefined")
-				const last_call = err.stack.split('\n')[1].trim()
-				assert.equal(last_call, "__webpack_require__.m[moduleId].call(")
-				const location = err.stack.split('\n')[5].trim()
-				assert.equal(location, "at rewire (webpack:///./lib/rewire.web.js?:16:34)")
+				assert_typeError(err)
+			}
+			done()
+			});
+	})
+
+	it("generates a bundle with a TypeError when rewire is required with a variable name different from 'rewire'", (done) => {
+		const compiler = generate_webpack_compiler('rewire-variable-name');
+		compiler.run((err, stats) => {
+			// the compilation itself should be error-free
+			assert_no_webpack_errors(err, stats)
+			try {
+				eval_asset(stats)
+				assert.fail("Expected eval_asset(stats) to throw a TypeError, but it didn't")
+			}
+			catch (err) {
+				assert_typeError(err)
 			}
 			done()
 			});
