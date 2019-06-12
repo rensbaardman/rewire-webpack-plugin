@@ -2,6 +2,8 @@ rewire-webpack-plugin
 =====================
 *Webpack plugin to enable [rewire](https://github.com/jhnns/rewire) in webpack bundles*
 
+This is a fork of [rewire-webpack](https://github.com/jhnns/rewire-webpack) that adds support for webpack 4.
+
 Installation
 ------------
 
